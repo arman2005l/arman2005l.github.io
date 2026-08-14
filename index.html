@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آرمان | Arman - توسعه‌دهنده نرم‌افزار و امنیت</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@5.0.0/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+    <style>
+        /* ============ Reset و متغیرهای CSS ============ */
+        :root {
+            --primary-dark: #0f172a;
+            --secondary-dark: #1e293b;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-cyan: #06d6a0;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ============ حالت لایت مود ============ */
+        body.light-mode {
+            --primary-dark: #f8fafc;
+            --secondary-dark: #e2e8f0;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ============ هدر ============ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: background-color 0.3s ease;
+        }
+
+        body.light-mode .header {
+            background: rgba(248, 250, 252, 0.85);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            color: var(--accent-blue);
+        }
+
+        .logo h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .logo-name {
+            color: var(--accent-blue);
+        }
+
+        .logo-latin {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-link.active {
+            color: #fff;
+            background: var(--accent-blue);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .theme-toggle, .mobile-menu-btn {
+            background: none;
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            font-size: 20px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover, .mobile-menu-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--accent-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            border-radius: 8px;
+        }
+
+        /* ============ بخش Hero ============ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 60px;
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .typewriter-container {
+            min-height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .typewriter-text {
+            font-size: 18px;
+            color: var(--accent-cyan);
+            font-weight: 500;
+            display: inline;
+        }
+
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 20px;
+            background: var(--accent-cyan);
+            margin-right: 3px;
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .hero-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--glass-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-blue);
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* پنجره کد */
+        .code-window {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .window-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+
+        .window-title {
+            margin-right: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-family: monospace;
+        }
+
+        .window-content {
+            padding: 20px;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .code-snippet {
+            margin: 0;
+            white-space: pre-wrap;
+            color: var(--text-primary);
+        }
+
+        /* ============ بخش‌های عمومی ============ */
+        .about, .skills, .projects, .music, .contact { padding: 80px 0; }
+
+        .section-header { text-align: center; margin-bottom: 50px; }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle { font-size: 18px; color: var(--text-secondary); }
+
+        /* ============ کارت‌ها و گرید ============ */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent-blue);
+        }
+
+        /* ============ مهارت‌ها ============ */
+        .skills-list { list-style: none; }
+        .skills-list li { margin-bottom: 20px; }
+        .skill-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .skill-name { font-size: 15px; font-weight: 500; }
+        .skill-percentage { color: var(--accent-cyan); font-weight: 600; }
+        
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+
+        /* ============ موزیک ============ */
+        .music-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .music-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background: rgba(59, 130, 246, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--accent-blue);
+            flex-shrink: 0;
+        }
+
+        /* ============ صندوق پیام ناشناس ============ */
+        .anonymous-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--accent-purple);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+        }
+
+        .anonymous-form textarea {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 15px;
+            color: var(--text-primary);
+            resize: vertical;
+            min-height: 120px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .anonymous-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+        }
+
+        .form-result {
+            display: none;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .form-result.success {
+            background: rgba(6, 214, 160, 0.15);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* ============ فوتر ============ */
+        .footer {
+            background: rgba(15, 23, 42, 0.95);
+            border-top: 1px solid var(--glass-border);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .social-links { display: flex; justify-content: center; gap: 15px; margin-bottom: 15px; }
+
+        .social-link {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-secondary); text-decoration: none; transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent-blue); color: #fff; transform: translateY(-3px);
+        }
+
+        /* ============ واکنش‌گرایی ============ */
+        @media (max-width: 768px) {
+            .hero-content, .grid-2 { grid-template-columns: 1fr; }
+            .hero-title { font-size: 32px; }
+            .mobile-menu-btn { display: flex; }
+            .nav-menu {
+                position: fixed; top: 70px; right: -100%; width: 250px;
+                height: calc(100vh - 70px); background: var(--primary-dark);
+                border-left: 1px solid var(--glass-border); transition: right 0.3s ease;
+                padding: 20px;
+            }
+            .nav-menu.active { right: 0; }
+            .nav-menu ul { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- ============ هدر ============ -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="#home" class="logo">
+                        <span class="logo-icon">🛡️</span>
+                        <h1><span class="logo-name">آرمان</span> | <span class="logo-latin">Arman</span></h1>
+                    </a>
+                    
+                    <nav class="nav-menu" id="nav-menu">
+                        <ul>
+                            <li><a href="#home" class="nav-link active">خانه</a></li>
+                            <li><a href="#about" class="nav-link">درباره من</a></li>
+                            <li><a href="#skills" class="nav-link">مهارت‌ها</a></li>
+                            <li><a href="#projects" class="nav-link">پروژه‌ها</a></li>
+                            <li><a href="#music" class="nav-link">موزیک</a></li>
+                            <li><a href="#contact" class="nav-link">تماس</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="تغییر تم">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="منو">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- ============ بخش اصلی (Hero) ============ -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2 class="hero-title">توسعه‌دهنده نرم‌افزار</h2>
+                        <h3 class="hero-subtitle">امنیت و سیستم</h3>
+                        
+                        <div class="typewriter-container">
+                            <p class="typewriter-text" id="typewriter"></p>
+                            <span class="typewriter-cursor"></span>
+                        </div>
+                        
+                        <p class="hero-description">
+                            علاقه‌مند به برنامه‌نویسی سطح پایین، سیستم‌عامل لینوکس، شبکه‌های کامپیوتری و توسعه ابزارهای مدرن کاربردی.
+                        </p>
+                        
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> ارتباط با من</a>
+                            <a href="#projects" class="btn btn-secondary"><i class="fas fa-code"></i> پروژه‌ها</a>
+                        </div>
+                    </div>
+                    
+                    <div class="code-window">
+                        <div class="window-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="window-title">terminal — zsh</span>
+                        </div>
+                        <div class="window-content">
+                            <pre><code class="code-snippet">$ whoami
+> arman
+$ cat stack.json
+> {
+    "languages": ["Rust", "Go", "Python", "C++", "Dart"],
+    "os": "Arch Linux",
+    "focus": ["System Programming", "Network Security"]
+  }
+$ ./start.sh --status active</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============ درباره من ============ -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">درباره من</h2>
+                    <p class="section-subtitle">معرفی کوتاه از توانمندی‌ها و علایق</p>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="card">
+                        <h3 style="margin-bottom: 15px; color: var(--accent-blue);">نگاه کلی</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.8;">
+                            من <strong>آرمان</strong> هستم؛ توسعه‌دهنده سیستم و علاقه‌مند به حوزه امنیت سایبری. به کدنویسی به زبان‌های Rust و Go، سفارشی‌سازی لینوکس و تحلیل زیرساخت‌های شبکه علاقه بسیار زیادی دارم.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 style="margin-bottom: 15px; color: var(--accent-purple);">حوزه‌های کلیدی</h3>
+                        <ul style="list-style: none; color: var(--text-secondary); line-height: 2;">
+                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-left: 8px;"></i> توسعه ابزارهای ترمینال و TUI</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-left: 8px;"></i> مدیریت سرور و لینوکس (Arch/BlackArch)</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-left: 8px;"></i> امنیت وب و تست نفوذ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============ مهارت‌ها ============ -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">مهارت‌های فنی</h2>
+                    <p class="section-subtitle">میزان تسلط بر ابزارها و زبان‌ها</p>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="card">
+                        <h3 style="margin-bottom: 20px;"><i class="fas fa-code" style="color: var(--accent-blue);"></i> زبان‌های برنامه‌نویسی</h3>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-header"><span class="skill-name">Rust</span><span class="skill-percentage">90%</span></div>
+                                <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-header"><span class="skill-name">Go</span><span class="skill-percentage">85%</span></div>
+                                <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-header"><span class="skill-name">Python / C++</span><span class="skill-percentage">80%</span></div>
+                                <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 style="margin-bottom: 20px;"><i class="fas fa-shield-alt" style="color: var(--accent-purple);"></i> امنیت و شبکه</h3>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-header"><span class="skill-name">مدیریت لینوکس</span><span class="skill-percentage">90%</span></div>
+                                <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-header"><span class="skill-name">شبکه و Cisco</span><span class="skill-percentage">82%</span></div>
+                                <div class="skill-bar"><div class="skill-level" style="width: 82%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-header"><span class="skill-name">تست نفوذ & DevOps</span><span class="skill-percentage">80%</span></div>
+                                <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ پروژه‌ها ============ -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">پروژه‌ها</h2>
+                    <p class="section-subtitle">نمونه کارهای توسعه داده شده</p>
+                </div>
+                <div class="grid-cards">
+                    <div class="card">
+                        <h3>پنل TUI اختصاصی</h3>
+                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">توسعه کنسول مدیریت سیستم در محیط ترمینال با Go.</p>
+                        <span style="color: var(--accent-cyan); font-size: 12px;">#Go #TUI #Linux</span>
+                    </div>
+                    <div class="card">
+                        <h3>مدیریت آرشیو و فایل</h3>
+                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">برنامه فشرده‌سازی و امن‌سازی فایل چندسکویی.</p>
+                        <span style="color: var(--accent-purple); font-size: 12px;">#Flutter #Dart #Security</span>
+                    </div>
+                    <div class="card">
+                        <h3>اسکنر امنیت شبکه</h3>
+                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">ابزار بررسی آسیب‌پذیری و پایش پورت‌های شبکه.</p>
+                        <span style="color: var(--accent-blue); font-size: 12px;">#Python #Rust #Networking</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ بخش موزیک‌های مورد علاقه ============ -->
+        <section id="music" class="music">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">موزیک‌های مورد علاقه</h2>
+                    <p class="section-subtitle">چند قطعه که هنگام کدنویسی و تمرکز گوش می‌دهم</p>
+                </div>
+                
+                <div class="grid-2" style="max-width: 850px; margin: 0 auto;">
+                    <!-- موزیک ۱ -->
+                    <div class="card music-card">
+                        <div class="music-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div style="flex-grow: 1;">
+                            <h3 style="font-size: 18px; margin-bottom: 2px;">Falling Down</h3>
+                            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 12px;">Lil Peep & XXXTENTACION</p>
+                            <a href="https://open.spotify.com/search/Lil%20Peep%20XXXTENTACION%20Falling%20Down" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 14px; font-size: 13px; border-radius: 20px;">
+                                <i class="fab fa-spotify" style="color: #1DB954;"></i> گوش دادن در اسپاتیفای
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- موزیک ۲ -->
+                    <div class="card music-card">
+                        <div class="music-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--accent-purple);">
+                            <i class="fas fa-compact-disc"></i>
+                        </div>
+                        <div style="flex-grow: 1;">
+                            <h3 style="font-size: 18px; margin-bottom: 2px;">Stuff</h3>
+                            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 12px;">Travis Scott</p>
+                            <a href="https://open.spotify.com/search/Travis%20Scott%20Stuff" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 14px; font-size: 13px; border-radius: 20px;">
+                                <i class="fab fa-spotify" style="color: #1DB954;"></i> گوش دادن در اسپاتیفای
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ تماس و پیام ناشناس ============ -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="anonymous-box">
+                    <h3 style="margin-bottom: 10px;"><i class="fas fa-user-secret" style="color: var(--accent-purple);"></i> صندوق پیام ناشناس</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 14px;">
+                        می‌توانید بدون نام و نشانی، پیام یا انتقاد خود را ارسال کنید.
+                    </p>
+                    
+                    <form id="anonymous-form" class="anonymous-form" action="https://api.web3forms.com/submit" method="POST">
+                        <!-- کلید Web3Forms خود را اینجا بگذارید -->
+                        <input type="hidden" name="access_key" value="4d1ba36a-acdf-4904-b7c3-0de65b284ebe">
+                        <textarea name="message" placeholder="پیام خود را بنویسید..." required></textarea>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            <i class="fas fa-paper-plane"></i> ارسال محرمانه
+                        </button>
+                        <div id="form-result" class="form-result"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ فوتر ============ -->
+        <footer class="footer">
+            <div class="container">
+                <div class="social-links">
+                    <a href="https://github.com/arman2005l" target="_blank" rel="noopener noreferrer" class="social-link" title="گیت‌هاب"><i class="fab fa-github"></i></a>
+                    <a href="https://t.me/arman_laygh" target="_blank" rel="noopener noreferrer" class="social-link" title="تلگرام"><i class="fab fa-telegram"></i></a>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 14px;">© ۱۴۰۵ - طراحی و توسعه توسط آرمان</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ============ جاوااسکریپت ============ -->
+    <script>
+        // ۱. منوی موبایل
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // ۲. تغییر تم (Dark / Light)
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // ۳. افکت تایپ‌رایتر
+        const typewriterEl = document.getElementById('typewriter');
+        const phrases = [
+            'برنامه‌نویسی سطح پایین و سیستم.',
+            'سیستم‌عامل لینوکس و شبکه.',
+            'امنیت سایبری و تست نفوذ.'
+        ];
+        let pIndex = 0, cIndex = 0, isDeleting = false;
+
+        function type() {
+            const current = phrases[pIndex];
+            if (isDeleting) {
+                typewriterEl.textContent = current.substring(0, cIndex - 1);
+                cIndex--;
+            } else {
+                typewriterEl.textContent = current.substring(0, cIndex + 1);
+                cIndex++;
+            }
+
+            if (!isDeleting && cIndex === current.length) {
+                isDeleting = true;
+                setTimeout(type, 1500);
+                return;
+            } else if (isDeleting && cIndex === 0) {
+                isDeleting = false;
+                pIndex = (pIndex + 1) % phrases.length;
+            }
+
+            setTimeout(type, isDeleting ? 40 : 80);
+        }
+        document.addEventListener('DOMContentLoaded', type);
+
+        // ۴. ارسال فرم پیام ناشناس
+        const form = document.getElementById('anonymous-form');
+        const result = document.getElementById('form-result');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            result.style.display = 'block';
+            result.className = 'form-result';
+            result.textContent = 'در حال ارسال...';
+
+            const formData = new FormData(form);
+            try {
+                const res = await fetch(form.action, { method: 'POST', body: formData });
+                const json = await res.json();
+                if (json.success) {
+                    result.className = 'form-result success';
+                    result.textContent = 'پیام شما با موفقیت و به‌صورت محرمانه ارسال شد!';
+                    form.reset();
+                } else {
+                    result.textContent = 'خطا در ارسال. لطفاً کلید Web3Forms را چک کنید.';
+                }
+            } catch (err) {
+                result.textContent = 'خطای شبکه در ارسال پیام.';
+            }
+        });
+    </script>
+</body>
+</html>
