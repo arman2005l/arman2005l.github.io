@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>آرمان | Arman - توسعه‌دهنده نرم‌افزار و امنیت</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@5.0.0/index.css">
+    <title>Arman - Software & Security Developer</title>
+    <!-- Using a standard English font like Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
     <style>
-        /* ============ Reset و متغیرهای CSS ============ */
+        /* ============ Reset & CSS Variables ============ */
         :root {
             --primary-dark: #0f172a;
             --secondary-dark: #1e293b;
@@ -22,7 +23,7 @@
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        /* ============ حالت لایت مود ============ */
+        /* ============ Light Mode ============ */
         body.light-mode {
             --primary-dark: #f8fafc;
             --secondary-dark: #e2e8f0;
@@ -44,7 +45,7 @@
         }
 
         body {
-            font-family: 'Vazirmatn', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--primary-dark);
             color: var(--text-primary);
             line-height: 1.6;
@@ -58,7 +59,7 @@
             padding: 0 20px;
         }
 
-        /* ============ هدر ============ */
+        /* ============ Header ============ */
         .header {
             position: fixed;
             top: 0;
@@ -105,12 +106,6 @@
 
         .logo-name {
             color: var(--accent-blue);
-        }
-
-        .logo-latin {
-            font-size: 16px;
-            font-weight: 400;
-            color: var(--text-secondary);
         }
 
         .nav-menu ul {
@@ -165,7 +160,7 @@
             border-radius: 8px;
         }
 
-        /* ============ بخش Hero ============ */
+        /* ============ Hero Section ============ */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -215,7 +210,7 @@
             width: 2px;
             height: 20px;
             background: var(--accent-cyan);
-            margin-right: 3px;
+            margin-left: 3px;
             animation: blink 0.7s infinite;
             vertical-align: middle;
         }
@@ -273,8 +268,19 @@
             background: rgba(59, 130, 246, 0.1);
             transform: translateY(-2px);
         }
+        
+        .btn-telegram {
+            background: #0088cc;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 136, 204, 0.4);
+        }
+        
+        .btn-telegram:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(0, 136, 204, 0.5);
+        }
 
-        /* پنجره کد */
+        /* Code Window */
         .code-window {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
@@ -299,7 +305,7 @@
         .dot.green { background: #27c93f; }
 
         .window-title {
-            margin-right: 10px;
+            margin-left: 10px;
             font-size: 14px;
             color: var(--text-secondary);
             font-family: monospace;
@@ -318,8 +324,8 @@
             color: var(--text-primary);
         }
 
-        /* ============ بخش‌های عمومی ============ */
-        .about, .skills, .projects, .music, .contact { padding: 80px 0; }
+        /* ============ General Sections ============ */
+        .about, .skills, .projects, .vpn-section, .music, .contact { padding: 80px 0; }
 
         .section-header { text-align: center; margin-bottom: 50px; }
 
@@ -334,7 +340,7 @@
 
         .section-subtitle { font-size: 18px; color: var(--text-secondary); }
 
-        /* ============ کارت‌ها و گرید ============ */
+        /* ============ Cards & Grid ============ */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
 
@@ -353,7 +359,59 @@
             border-color: var(--accent-blue);
         }
 
-        /* ============ مهارت‌ها ============ */
+        /* ============ VPN Bot Section ============ */
+        .vpn-banner {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vpn-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -50%; bottom: -50%; left: -50%;
+            background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 60%);
+            z-index: 0;
+        }
+        
+        .vpn-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+        
+        .vpn-icon {
+            font-size: 80px;
+            color: var(--accent-blue);
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(59,130,246,0.4);
+        }
+        
+        .vpn-features {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .vpn-feature {
+            background: rgba(255,255,255,0.05);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 214, 160, 0.2);
+        }
+
+        /* ============ Skills ============ */
         .skills-list { list-style: none; }
         .skills-list li { margin-bottom: 20px; }
         .skill-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
@@ -374,7 +432,7 @@
             transition: width 1s ease-in-out;
         }
 
-        /* ============ موزیک ============ */
+        /* ============ Music ============ */
         .music-card {
             display: flex;
             align-items: center;
@@ -395,7 +453,7 @@
             flex-shrink: 0;
         }
 
-        /* ============ صندوق پیام ناشناس ============ */
+        /* ============ Anonymous Box ============ */
         .anonymous-box {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
@@ -442,7 +500,7 @@
             color: var(--accent-cyan);
         }
 
-        /* ============ فوتر ============ */
+        /* ============ Footer ============ */
         .footer {
             background: rgba(15, 23, 42, 0.95);
             border-top: 1px solid var(--glass-border);
@@ -464,49 +522,52 @@
             background: var(--accent-blue); color: #fff; transform: translateY(-3px);
         }
 
-        /* ============ واکنش‌گرایی ============ */
+        /* ============ Responsiveness ============ */
         @media (max-width: 768px) {
             .hero-content, .grid-2 { grid-template-columns: 1fr; }
             .hero-title { font-size: 32px; }
+            .vpn-banner { flex-direction: column; text-align: center; }
+            .vpn-features { justify-content: center; flex-wrap: wrap; }
             .mobile-menu-btn { display: flex; }
             .nav-menu {
-                position: fixed; top: 70px; right: -100%; width: 250px;
+                position: fixed; top: 70px; left: -100%; width: 250px;
                 height: calc(100vh - 70px); background: var(--primary-dark);
-                border-left: 1px solid var(--glass-border); transition: right 0.3s ease;
+                border-right: 1px solid var(--glass-border); transition: left 0.3s ease;
                 padding: 20px;
             }
-            .nav-menu.active { right: 0; }
+            .nav-menu.active { left: 0; }
             .nav-menu ul { flex-direction: column; }
         }
     </style>
 </head>
 <body>
     <div id="app">
-        <!-- ============ هدر ============ -->
+        <!-- ============ Header ============ -->
         <header class="header">
             <div class="container">
                 <div class="header-content">
                     <a href="#home" class="logo">
                         <span class="logo-icon">🛡️</span>
-                        <h1><span class="logo-name">آرمان</span> | <span class="logo-latin">Arman</span></h1>
+                        <h1><span class="logo-name">Arman</span></h1>
                     </a>
                     
                     <nav class="nav-menu" id="nav-menu">
                         <ul>
-                            <li><a href="#home" class="nav-link active">خانه</a></li>
-                            <li><a href="#about" class="nav-link">درباره من</a></li>
-                            <li><a href="#skills" class="nav-link">مهارت‌ها</a></li>
-                            <li><a href="#projects" class="nav-link">پروژه‌ها</a></li>
-                            <li><a href="#music" class="nav-link">موزیک</a></li>
-                            <li><a href="#contact" class="nav-link">تماس</a></li>
+                            <li><a href="#home" class="nav-link active">Home</a></li>
+                            <li><a href="#about" class="nav-link">About Me</a></li>
+                            <li><a href="#skills" class="nav-link">Skills</a></li>
+                            <li><a href="#projects" class="nav-link">Projects</a></li>
+                            <li><a href="#vpn" class="nav-link">VPN Bot</a></li>
+                            <li><a href="#music" class="nav-link">Music</a></li>
+                            <li><a href="#contact" class="nav-link">Contact</a></li>
                         </ul>
                     </nav>
                     
                     <div style="display: flex; gap: 10px;">
-                        <button id="theme-toggle" class="theme-toggle" aria-label="تغییر تم">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
                             <i class="fas fa-moon"></i>
                         </button>
-                        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="منو">
+                        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
                             <i class="fas fa-bars"></i>
                         </button>
                     </div>
@@ -514,13 +575,13 @@
             </div>
         </header>
         
-        <!-- ============ بخش اصلی (Hero) ============ -->
+        <!-- ============ Hero Section ============ -->
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <h2 class="hero-title">توسعه‌دهنده نرم‌افزار</h2>
-                        <h3 class="hero-subtitle">امنیت و سیستم</h3>
+                        <h2 class="hero-title">Software Developer</h2>
+                        <h3 class="hero-subtitle">Security & Systems</h3>
                         
                         <div class="typewriter-container">
                             <p class="typewriter-text" id="typewriter"></p>
@@ -528,12 +589,12 @@
                         </div>
                         
                         <p class="hero-description">
-                            علاقه‌مند به برنامه‌نویسی سطح پایین، سیستم‌عامل لینوکس، شبکه‌های کامپیوتری و توسعه ابزارهای مدرن کاربردی.
+                            Passionate about low-level programming, Linux operating systems, computer networks, and developing modern utility tools.
                         </p>
                         
                         <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> ارتباط با من</a>
-                            <a href="#projects" class="btn btn-secondary"><i class="fas fa-code"></i> پروژه‌ها</a>
+                            <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                            <a href="#projects" class="btn btn-secondary"><i class="fas fa-code"></i> Projects</a>
                         </div>
                     </div>
                     
@@ -560,44 +621,44 @@ $ ./start.sh --status active</code></pre>
             </div>
         </section>
         
-        <!-- ============ درباره من ============ -->
+        <!-- ============ About Me ============ -->
         <section id="about" class="about">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">درباره من</h2>
-                    <p class="section-subtitle">معرفی کوتاه از توانمندی‌ها و علایق</p>
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-subtitle">A brief introduction to my skills and interests</p>
                 </div>
                 
                 <div class="grid-2">
                     <div class="card">
-                        <h3 style="margin-bottom: 15px; color: var(--accent-blue);">نگاه کلی</h3>
+                        <h3 style="margin-bottom: 15px; color: var(--accent-blue);">Overview</h3>
                         <p style="color: var(--text-secondary); line-height: 1.8;">
-                            من <strong>آرمان</strong> هستم؛ توسعه‌دهنده سیستم و علاقه‌مند به حوزه امنیت سایبری. به کدنویسی به زبان‌های Rust و Go، سفارشی‌سازی لینوکس و تحلیل زیرساخت‌های شبکه علاقه بسیار زیادی دارم.
+                            I am <strong>Arman</strong>; a systems developer and cybersecurity enthusiast. I have a strong passion for coding in Rust and Go, customizing Linux environments, and analyzing network infrastructures.
                         </p>
                     </div>
                     <div class="card">
-                        <h3 style="margin-bottom: 15px; color: var(--accent-purple);">حوزه‌های کلیدی</h3>
+                        <h3 style="margin-bottom: 15px; color: var(--accent-purple);">Key Areas</h3>
                         <ul style="list-style: none; color: var(--text-secondary); line-height: 2;">
-                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-left: 8px;"></i> توسعه ابزارهای ترمینال و TUI</li>
-                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-left: 8px;"></i> مدیریت سرور و لینوکس (Arch/BlackArch)</li>
-                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-left: 8px;"></i> امنیت وب و تست نفوذ</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-right: 8px;"></i> Terminal Tools & TUI Development</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-right: 8px;"></i> Server & Linux Administration (Arch/BlackArch)</li>
+                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-right: 8px;"></i> Web Security & Penetration Testing</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- ============ مهارت‌ها ============ -->
+        <!-- ============ Skills ============ -->
         <section id="skills" class="skills">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">مهارت‌های فنی</h2>
-                    <p class="section-subtitle">میزان تسلط بر ابزارها و زبان‌ها</p>
+                    <h2 class="section-title">Technical Skills</h2>
+                    <p class="section-subtitle">Proficiency in tools and languages</p>
                 </div>
                 
                 <div class="grid-2">
                     <div class="card">
-                        <h3 style="margin-bottom: 20px;"><i class="fas fa-code" style="color: var(--accent-blue);"></i> زبان‌های برنامه‌نویسی</h3>
+                        <h3 style="margin-bottom: 20px;"><i class="fas fa-code" style="color: var(--accent-blue);"></i> Programming Languages</h3>
                         <ul class="skills-list">
                             <li>
                                 <div class="skill-header"><span class="skill-name">Rust</span><span class="skill-percentage">90%</span></div>
@@ -615,18 +676,18 @@ $ ./start.sh --status active</code></pre>
                     </div>
                     
                     <div class="card">
-                        <h3 style="margin-bottom: 20px;"><i class="fas fa-shield-alt" style="color: var(--accent-purple);"></i> امنیت و شبکه</h3>
+                        <h3 style="margin-bottom: 20px;"><i class="fas fa-shield-alt" style="color: var(--accent-purple);"></i> Security & Networking</h3>
                         <ul class="skills-list">
                             <li>
-                                <div class="skill-header"><span class="skill-name">مدیریت لینوکس</span><span class="skill-percentage">90%</span></div>
+                                <div class="skill-header"><span class="skill-name">Linux Administration</span><span class="skill-percentage">90%</span></div>
                                 <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
                             </li>
                             <li>
-                                <div class="skill-header"><span class="skill-name">شبکه و Cisco</span><span class="skill-percentage">82%</span></div>
+                                <div class="skill-header"><span class="skill-name">Networking & Cisco</span><span class="skill-percentage">82%</span></div>
                                 <div class="skill-bar"><div class="skill-level" style="width: 82%;"></div></div>
                             </li>
                             <li>
-                                <div class="skill-header"><span class="skill-name">تست نفوذ & DevOps</span><span class="skill-percentage">80%</span></div>
+                                <div class="skill-header"><span class="skill-name">Penetration Testing & DevOps</span><span class="skill-percentage">80%</span></div>
                                 <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
                             </li>
                         </ul>
@@ -635,43 +696,76 @@ $ ./start.sh --status active</code></pre>
             </div>
         </section>
 
-        <!-- ============ پروژه‌ها ============ -->
+        <!-- ============ Projects ============ -->
         <section id="projects" class="projects">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">پروژه‌ها</h2>
-                    <p class="section-subtitle">نمونه کارهای توسعه داده شده</p>
+                    <h2 class="section-title">Projects</h2>
+                    <p class="section-subtitle">Showcase of my developed works</p>
                 </div>
                 <div class="grid-cards">
                     <div class="card">
-                        <h3>پنل TUI اختصاصی</h3>
-                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">توسعه کنسول مدیریت سیستم در محیط ترمینال با Go.</p>
+                        <h3>Custom TUI Panel</h3>
+                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">Development of a system management console in the terminal environment using Go.</p>
                         <span style="color: var(--accent-cyan); font-size: 12px;">#Go #TUI #Linux</span>
                     </div>
                     <div class="card">
-                        <h3>مدیریت آرشیو و فایل</h3>
-                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">برنامه فشرده‌سازی و امن‌سازی فایل چندسکویی.</p>
+                        <h3>Archive & File Manager</h3>
+                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">Cross-platform file compression and security application.</p>
                         <span style="color: var(--accent-purple); font-size: 12px;">#Flutter #Dart #Security</span>
                     </div>
                     <div class="card">
-                        <h3>اسکنر امنیت شبکه</h3>
-                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">ابزار بررسی آسیب‌پذیری و پایش پورت‌های شبکه.</p>
+                        <h3>Network Security Scanner</h3>
+                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">Tool for vulnerability assessment and network port monitoring.</p>
                         <span style="color: var(--accent-blue); font-size: 12px;">#Python #Rust #Networking</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============ بخش موزیک‌های مورد علاقه ============ -->
+        <!-- ============ VPN Bot Section ============ -->
+        <section id="vpn" class="vpn-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Premium Services</h2>
+                    <p class="section-subtitle">Discover my latest service integration</p>
+                </div>
+                
+                <div class="vpn-banner">
+                    <div class="vpn-content">
+                        <h3 style="font-size: 28px; margin-bottom: 10px; color: #fff;">OpenGate VPN</h3>
+                        <p style="color: var(--text-secondary); font-size: 16px; margin-bottom: 5px;">
+                            Experience seamless and secure internet access. Manage your subscriptions directly through our Telegram Bot with premium quality and clean design.
+                        </p>
+                        
+                        <div class="vpn-features">
+                            <span class="vpn-feature"><i class="fas fa-bolt"></i> Fast</span>
+                            <span class="vpn-feature"><i class="fas fa-lock"></i> Secure</span>
+                            <span class="vpn-feature"><i class="fas fa-server"></i> Reliable</span>
+                        </div>
+                        
+                        <a href="https://t.me/OpenGatePro_Bot" target="_blank" rel="noopener noreferrer" class="btn btn-telegram">
+                            <i class="fab fa-telegram-plane"></i> Launch @OpenGatePro_Bot
+                        </a>
+                    </div>
+                    
+                    <div class="vpn-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Favorite Music ============ -->
         <section id="music" class="music">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">موزیک‌های مورد علاقه</h2>
-                    <p class="section-subtitle">چند قطعه که هنگام کدنویسی و تمرکز گوش می‌دهم</p>
+                    <h2 class="section-title">Favorite Music</h2>
+                    <p class="section-subtitle">A few tracks I listen to while coding and focusing</p>
                 </div>
                 
                 <div class="grid-2" style="max-width: 850px; margin: 0 auto;">
-                    <!-- موزیک ۱ -->
+                    <!-- Music 1 -->
                     <div class="card music-card">
                         <div class="music-icon">
                             <i class="fas fa-music"></i>
@@ -680,12 +774,12 @@ $ ./start.sh --status active</code></pre>
                             <h3 style="font-size: 18px; margin-bottom: 2px;">Falling Down</h3>
                             <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 12px;">Lil Peep & XXXTENTACION</p>
                             <a href="https://open.spotify.com/search/Lil%20Peep%20XXXTENTACION%20Falling%20Down" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 14px; font-size: 13px; border-radius: 20px;">
-                                <i class="fab fa-spotify" style="color: #1DB954;"></i> گوش دادن در اسپاتیفای
+                                <i class="fab fa-spotify" style="color: #1DB954;"></i> Listen on Spotify
                             </a>
                         </div>
                     </div>
 
-                    <!-- موزیک ۲ -->
+                    <!-- Music 2 -->
                     <div class="card music-card">
                         <div class="music-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--accent-purple);">
                             <i class="fas fa-compact-disc"></i>
@@ -694,7 +788,7 @@ $ ./start.sh --status active</code></pre>
                             <h3 style="font-size: 18px; margin-bottom: 2px;">Stuff</h3>
                             <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 12px;">Travis Scott</p>
                             <a href="https://open.spotify.com/search/Travis%20Scott%20Stuff" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 14px; font-size: 13px; border-radius: 20px;">
-                                <i class="fab fa-spotify" style="color: #1DB954;"></i> گوش دادن در اسپاتیفای
+                                <i class="fab fa-spotify" style="color: #1DB954;"></i> Listen on Spotify
                             </a>
                         </div>
                     </div>
@@ -702,21 +796,20 @@ $ ./start.sh --status active</code></pre>
             </div>
         </section>
 
-        <!-- ============ تماس و پیام ناشناس ============ -->
+        <!-- ============ Contact & Anonymous Message ============ -->
         <section id="contact" class="contact">
             <div class="container">
                 <div class="anonymous-box">
-                    <h3 style="margin-bottom: 10px;"><i class="fas fa-user-secret" style="color: var(--accent-purple);"></i> صندوق پیام ناشناس</h3>
+                    <h3 style="margin-bottom: 10px;"><i class="fas fa-user-secret" style="color: var(--accent-purple);"></i> Anonymous Message Box</h3>
                     <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 14px;">
-                        می‌توانید بدون نام و نشانی، پیام یا انتقاد خود را ارسال کنید.
+                        Feel free to send me a message, feedback, or criticism completely anonymously.
                     </p>
                     
                     <form id="anonymous-form" class="anonymous-form" action="https://api.web3forms.com/submit" method="POST">
-                        <!-- کلید Web3Forms خود را اینجا بگذارید -->
                         <input type="hidden" name="access_key" value="4d1ba36a-acdf-4904-b7c3-0de65b284ebe">
-                        <textarea name="message" placeholder="پیام خود را بنویسید..." required></textarea>
+                        <textarea name="message" placeholder="Write your message here..." required></textarea>
                         <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                            <i class="fas fa-paper-plane"></i> ارسال محرمانه
+                            <i class="fas fa-paper-plane"></i> Send Anonymously
                         </button>
                         <div id="form-result" class="form-result"></div>
                     </form>
@@ -724,21 +817,21 @@ $ ./start.sh --status active</code></pre>
             </div>
         </section>
 
-        <!-- ============ فوتر ============ -->
+        <!-- ============ Footer ============ -->
         <footer class="footer">
             <div class="container">
                 <div class="social-links">
-                    <a href="https://github.com/arman2005l" target="_blank" rel="noopener noreferrer" class="social-link" title="گیت‌هاب"><i class="fab fa-github"></i></a>
-                    <a href="https://t.me/arman_laygh" target="_blank" rel="noopener noreferrer" class="social-link" title="تلگرام"><i class="fab fa-telegram"></i></a>
+                    <a href="https://github.com/arman2005l" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://t.me/arman_laygh" target="_blank" rel="noopener noreferrer" class="social-link" title="Telegram"><i class="fab fa-telegram"></i></a>
                 </div>
-                <p style="color: var(--text-secondary); font-size: 14px;">© ۱۴۰۵ - طراحی و توسعه توسط آرمان</p>
+                <p style="color: var(--text-secondary); font-size: 14px;">© 2026 - Designed & Developed by Arman</p>
             </div>
         </footer>
     </div>
 
-    <!-- ============ جاوااسکریپت ============ -->
+    <!-- ============ JavaScript ============ -->
     <script>
-        // ۱. منوی موبایل
+        // 1. Mobile Menu
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const navMenu = document.getElementById('nav-menu');
 
@@ -746,7 +839,7 @@ $ ./start.sh --status active</code></pre>
             navMenu.classList.toggle('active');
         });
 
-        // ۲. تغییر تم (Dark / Light)
+        // 2. Theme Toggle (Dark / Light)
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
 
@@ -759,12 +852,12 @@ $ ./start.sh --status active</code></pre>
             }
         });
 
-        // ۳. افکت تایپ‌رایتر
+        // 3. Typewriter Effect
         const typewriterEl = document.getElementById('typewriter');
         const phrases = [
-            'برنامه‌نویسی سطح پایین و سیستم.',
-            'سیستم‌عامل لینوکس و شبکه.',
-            'امنیت سایبری و تست نفوذ.'
+            'Low-level & System Programming.',
+            'Linux OS & Networking.',
+            'Cybersecurity & Penetration Testing.'
         ];
         let pIndex = 0, cIndex = 0, isDeleting = false;
 
@@ -791,7 +884,7 @@ $ ./start.sh --status active</code></pre>
         }
         document.addEventListener('DOMContentLoaded', type);
 
-        // ۴. ارسال فرم پیام ناشناس
+        // 4. Anonymous Form Submission
         const form = document.getElementById('anonymous-form');
         const result = document.getElementById('form-result');
 
@@ -799,7 +892,7 @@ $ ./start.sh --status active</code></pre>
             e.preventDefault();
             result.style.display = 'block';
             result.className = 'form-result';
-            result.textContent = 'در حال ارسال...';
+            result.textContent = 'Sending...';
 
             const formData = new FormData(form);
             try {
@@ -807,13 +900,13 @@ $ ./start.sh --status active</code></pre>
                 const json = await res.json();
                 if (json.success) {
                     result.className = 'form-result success';
-                    result.textContent = 'پیام شما با موفقیت و به‌صورت محرمانه ارسال شد!';
+                    result.textContent = 'Your message has been successfully sent anonymously!';
                     form.reset();
                 } else {
-                    result.textContent = 'خطا در ارسال. لطفاً کلید Web3Forms را چک کنید.';
+                    result.textContent = 'Error sending message. Please check the Web3Forms key.';
                 }
             } catch (err) {
-                result.textContent = 'خطای شبکه در ارسال پیام.';
+                result.textContent = 'Network error while sending the message.';
             }
         });
     </script>
