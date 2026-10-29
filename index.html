@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arman - Software & Security Developer</title>
-    <!-- Using a standard English font like Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
-    <style>
+<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Arman's software, systems, Linux infrastructure, networking, and security projects."><title>Arman - Software, Systems &amp; Infrastructure</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Vazirmatn:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>"><style>
         /* ============ Reset & CSS Variables ============ */
         :root {
             --primary-dark: #0f172a;
@@ -538,377 +528,87 @@
             .nav-menu.active { left: 0; }
             .nav-menu ul { flex-direction: column; }
         }
-    </style>
-</head>
-<body>
-    <div id="app">
-        <!-- ============ Header ============ -->
-        <header class="header">
-            <div class="container">
-                <div class="header-content">
-                    <a href="#home" class="logo">
-                        <span class="logo-icon">🛡️</span>
-                        <h1><span class="logo-name">Arman</span></h1>
-                    </a>
-                    
-                    <nav class="nav-menu" id="nav-menu">
-                        <ul>
-                            <li><a href="#home" class="nav-link active">Home</a></li>
-                            <li><a href="#about" class="nav-link">About Me</a></li>
-                            <li><a href="#skills" class="nav-link">Skills</a></li>
-                            <li><a href="#projects" class="nav-link">Projects</a></li>
-                            <li><a href="#vpn" class="nav-link">VPN Bot</a></li>
-                            <li><a href="#music" class="nav-link">Music</a></li>
-                            <li><a href="#contact" class="nav-link">Contact</a></li>
-                        </ul>
-                    </nav>
-                    
-                    <div style="display: flex; gap: 10px;">
-                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
-                            <i class="fas fa-moon"></i>
-                        </button>
-                        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </header>
-        
-        <!-- ============ Hero Section ============ -->
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h2 class="hero-title">Software Developer</h2>
-                        <h3 class="hero-subtitle">Security & Systems</h3>
-                        
-                        <div class="typewriter-container">
-                            <p class="typewriter-text" id="typewriter"></p>
-                            <span class="typewriter-cursor"></span>
-                        </div>
-                        
-                        <p class="hero-description">
-                            Passionate about low-level programming, Linux operating systems, computer networks, and developing modern utility tools.
-                        </p>
-                        
-                        <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Contact Me</a>
-                            <a href="#projects" class="btn btn-secondary"><i class="fas fa-code"></i> Projects</a>
-                        </div>
-                    </div>
-                    
-                    <div class="code-window">
-                        <div class="window-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                            <span class="window-title">terminal — zsh</span>
-                        </div>
-                        <div class="window-content">
-                            <pre><code class="code-snippet">$ whoami
-> arman
+    
+/* Bilingual controls, grouped skill cards, and RTL refinements */
+.lang-toggle { background:none;border:1px solid var(--glass-border);color:var(--text-primary);font:600 13px Inter,sans-serif;cursor:pointer;padding:8px 12px;border-radius:20px;min-width:44px; }
+.lang-toggle:hover { border-color:var(--accent-blue); color:var(--accent-blue); }
+.header-controls {display:flex;align-items:center;gap:10px}
+.skill-groups {display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:22px}
+.skill-group h3 {margin-bottom:14px;color:var(--text-primary);font-size:18px}
+.badges {display:flex;flex-wrap:wrap;gap:9px}
+.badge,.tech-tag {display:inline-flex;align-items:center;padding:7px 11px;border-radius:20px;background:rgba(59,130,246,.10);border:1px solid var(--glass-border);color:var(--text-secondary);font-size:13px;line-height:1.5}
+.card h3 {color:var(--text-primary)}
+.projects .grid-cards {grid-template-columns:minmax(0,1fr)}
+.project-card {display:flex;flex-direction:column;gap:8px;min-width:0;overflow-wrap:anywhere}
+.project-card p {color:var(--text-secondary);line-height:1.8;font-size:14px}
+.project-card .tech-tags {display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:10px}
+.project-link {display:inline-flex;align-items:center;gap:8px;color:var(--accent-cyan);text-decoration:none;font-weight:600;margin:5px 0}
+.status-badge {display:inline-block;width:max-content;padding:4px 10px;border:1px solid rgba(6,214,160,.3);border-radius:20px;color:var(--accent-cyan);font-size:12px;background:rgba(6,214,160,.08)}
+.in-progress {padding:0 0 60px}
+.vpn-banner {background:linear-gradient(145deg,rgba(30,41,59,.92),rgba(15,23,42,.96))}
+.vpn-content {max-width:850px}
+.vpn-features {flex-wrap:wrap}
+.vpn-feature {line-height:1.5}
+.window-content,.code-window {direction:ltr;text-align:left}
+.logo {flex-shrink:0}
+[dir="rtl"] body {font-family:'Vazirmatn','Inter',sans-serif}
+[dir="rtl"] .header-content,[dir="rtl"] .header-controls {direction:rtl}
+[dir="rtl"] .nav-menu ul {direction:rtl}
+[dir="rtl"] .typewriter-cursor {margin-left:0;margin-right:3px}
+[dir="rtl"] .about .fa-check {margin-right:0!important;margin-left:8px}
+[dir="rtl"] .vpn-banner::before {right:-50%;left:-50%}
+[dir="rtl"] .vpn-banner {text-align:right}
+[dir="rtl"] .vpn-icon {margin-inline-start:10px}
+[dir="rtl"] .nav-menu {border-right:0;border-left:1px solid var(--glass-border)}
+[dir="rtl"] .window-title {margin-left:10px;margin-right:0}
+html[lang="fa"] .lang-fa-text {font-family:'Vazirmatn','Inter',sans-serif}
+@media(max-width:768px){.header-content{gap:8px}.header-controls{gap:6px}.nav-menu{z-index:1001}.project-card{min-height:0}.section-title{font-size:30px}.vpn-banner{padding:28px 22px}}
+</style></head><body><div id="app">
+<header class="header"><div class="container"><div class="header-content"><a href="#home" class="logo"><span class="logo-icon">🛡️</span><h1><span class="logo-name">Arman</span></h1></a>
+<nav class="nav-menu" id="nav-menu"><ul><li><a href="#home" class="nav-link"><span class="lang-en">Home</span><span class="lang-fa-text lang-fa">خانه</span></a></li><li><a href="#about" class="nav-link"><span class="lang-en">About</span><span class="lang-fa-text lang-fa">درباره</span></a></li><li><a href="#skills" class="nav-link"><span class="lang-en">Skills</span><span class="lang-fa-text lang-fa">مهارت‌ها</span></a></li><li><a href="#projects" class="nav-link"><span class="lang-en">Projects</span><span class="lang-fa-text lang-fa">پروژه‌ها</span></a></li><li><a href="#in-progress" class="nav-link"><span class="lang-en">In Progress / WIP</span><span class="lang-fa-text lang-fa">در جریان</span></a></li><li><a href="#vpn" class="nav-link"><span class="lang-en">VPN Infrastructure</span><span class="lang-fa-text lang-fa">زیرساخت VPN</span></a></li><li><a href="#music" class="nav-link"><span class="lang-en">Music</span><span class="lang-fa-text lang-fa">موسیقی</span></a></li><li><a href="#contact" class="nav-link"><span class="lang-en">Contact</span><span class="lang-fa-text lang-fa">تماس</span></a></li></ul></nav>
+<div class="header-controls"><button id="lang-toggle" class="lang-toggle" aria-label="Switch to Persian">FA</button><button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button><button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu"><i class="fas fa-bars"></i></button></div></div></div></header>
+<section class="hero" id="home"><div class="container"><div class="hero-content"><div class="hero-text"><h2 class="hero-title"><span class="lang-en">Software Developer</span><span class="lang-fa-text lang-fa">توسعه‌دهنده‌ی نرم‌افزار</span></h2><h3 class="hero-subtitle"><span class="lang-en">Systems, Infrastructure & Security</span><span class="lang-fa-text lang-fa">سیستم‌ها، زیرساخت و امنیت</span></h3><div class="typewriter-container"><p class="typewriter-text" id="typewriter"></p><span class="typewriter-cursor"></span></div><p class="hero-description"><span class="lang-en">Building software across backend services, Linux infrastructure, networking, and systems programming. This page documents selected completed and ongoing projects.</span><span class="lang-fa-text lang-fa">فعالیت در حوزه‌ی توسعه‌ی نرم‌افزار، سرویس‌های بک‌اند، زیرساخت لینوکس، شبکه و برنامه‌نویسی سیستمی. این صفحه نمونه‌ای از پروژه‌های انجام‌شده و درحال‌توسعه را معرفی می‌کند.</span></p><div class="hero-buttons"><a class="btn btn-primary" href="#contact"><i class="fas fa-paper-plane"></i><span class="lang-en">Contact</span><span class="lang-fa-text lang-fa">تماس</span></a><a class="btn btn-secondary" href="#projects"><i class="fas fa-code"></i><span class="lang-en">Projects</span><span class="lang-fa-text lang-fa">پروژه‌ها</span></a></div></div>
+<div class="code-window"><div class="window-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="window-title">terminal — zsh</span></div><div class="window-content"><pre><code class="code-snippet">$ whoami
+&gt; arman
 $ cat stack.json
-> {
-    "languages": ["Rust", "Go", "Python", "C++", "Dart"],
-    "os": "Arch Linux",
-    "focus": ["System Programming", "Network Security"]
+&gt; {
+    "languages": ["Go", "Python", "Rust (learning)", "C (learning)", "Dart"],
+    "os": "Ubuntu Linux",
+    "infrastructure": ["Docker", "Docker Compose", "Nginx"],
+    "networking": ["Xray-core", "sing-box", "gRPC"]
   }
-$ ./start.sh --status active</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ============ About Me ============ -->
-        <section id="about" class="about">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">A brief introduction to my skills and interests</p>
-                </div>
-                
-                <div class="grid-2">
-                    <div class="card">
-                        <h3 style="margin-bottom: 15px; color: var(--accent-blue);">Overview</h3>
-                        <p style="color: var(--text-secondary); line-height: 1.8;">
-                            I am <strong>Arman</strong>; a systems developer and cybersecurity enthusiast. I have a strong passion for coding in Rust and Go, customizing Linux environments, and analyzing network infrastructures.
-                        </p>
-                    </div>
-                    <div class="card">
-                        <h3 style="margin-bottom: 15px; color: var(--accent-purple);">Key Areas</h3>
-                        <ul style="list-style: none; color: var(--text-secondary); line-height: 2;">
-                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-right: 8px;"></i> Terminal Tools & TUI Development</li>
-                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-right: 8px;"></i> Server & Linux Administration (Arch/BlackArch)</li>
-                            <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-right: 8px;"></i> Web Security & Penetration Testing</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ============ Skills ============ -->
-        <section id="skills" class="skills">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Technical Skills</h2>
-                    <p class="section-subtitle">Proficiency in tools and languages</p>
-                </div>
-                
-                <div class="grid-2">
-                    <div class="card">
-                        <h3 style="margin-bottom: 20px;"><i class="fas fa-code" style="color: var(--accent-blue);"></i> Programming Languages</h3>
-                        <ul class="skills-list">
-                            <li>
-                                <div class="skill-header"><span class="skill-name">Rust</span><span class="skill-percentage">90%</span></div>
-                                <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-header"><span class="skill-name">Go</span><span class="skill-percentage">85%</span></div>
-                                <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-header"><span class="skill-name">Python / C++</span><span class="skill-percentage">80%</span></div>
-                                <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="card">
-                        <h3 style="margin-bottom: 20px;"><i class="fas fa-shield-alt" style="color: var(--accent-purple);"></i> Security & Networking</h3>
-                        <ul class="skills-list">
-                            <li>
-                                <div class="skill-header"><span class="skill-name">Linux Administration</span><span class="skill-percentage">90%</span></div>
-                                <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-header"><span class="skill-name">Networking & Cisco</span><span class="skill-percentage">82%</span></div>
-                                <div class="skill-bar"><div class="skill-level" style="width: 82%;"></div></div>
-                            </li>
-                            <li>
-                                <div class="skill-header"><span class="skill-name">Penetration Testing & DevOps</span><span class="skill-percentage">80%</span></div>
-                                <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ Projects ============ -->
-        <section id="projects" class="projects">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Projects</h2>
-                    <p class="section-subtitle">Showcase of my developed works</p>
-                </div>
-                <div class="grid-cards">
-                    <div class="card">
-                        <h3>Custom TUI Panel</h3>
-                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">Development of a system management console in the terminal environment using Go.</p>
-                        <span style="color: var(--accent-cyan); font-size: 12px;">#Go #TUI #Linux</span>
-                    </div>
-                    <div class="card">
-                        <h3>Archive & File Manager</h3>
-                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">Cross-platform file compression and security application.</p>
-                        <span style="color: var(--accent-purple); font-size: 12px;">#Flutter #Dart #Security</span>
-                    </div>
-                    <div class="card">
-                        <h3>Network Security Scanner</h3>
-                        <p style="color: var(--text-secondary); margin: 10px 0; font-size: 14px;">Tool for vulnerability assessment and network port monitoring.</p>
-                        <span style="color: var(--accent-blue); font-size: 12px;">#Python #Rust #Networking</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ VPN Bot Section ============ -->
-        <section id="vpn" class="vpn-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Premium Services</h2>
-                    <p class="section-subtitle">Discover my latest service integration</p>
-                </div>
-                
-                <div class="vpn-banner">
-                    <div class="vpn-content">
-                        <h3 style="font-size: 28px; margin-bottom: 10px; color: #fff;">OpenGate VPN</h3>
-                        <p style="color: var(--text-secondary); font-size: 16px; margin-bottom: 5px;">
-                            Experience seamless and secure internet access. Manage your subscriptions directly through our Telegram Bot with premium quality and clean design.
-                        </p>
-                        
-                        <div class="vpn-features">
-                            <span class="vpn-feature"><i class="fas fa-bolt"></i> Fast</span>
-                            <span class="vpn-feature"><i class="fas fa-lock"></i> Secure</span>
-                            <span class="vpn-feature"><i class="fas fa-server"></i> Reliable</span>
-                        </div>
-                        
-                        <a href="https://t.me/OpenGatePro_Bot" target="_blank" rel="noopener noreferrer" class="btn btn-telegram">
-                            <i class="fab fa-telegram-plane"></i> Launch @OpenGatePro_Bot
-                        </a>
-                    </div>
-                    
-                    <div class="vpn-icon">
-                        <i class="fas fa-shield-halved"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ Favorite Music ============ -->
-        <section id="music" class="music">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Favorite Music</h2>
-                    <p class="section-subtitle">A few tracks I listen to while coding and focusing</p>
-                </div>
-                
-                <div class="grid-2" style="max-width: 850px; margin: 0 auto;">
-                    <!-- Music 1 -->
-                    <div class="card music-card">
-                        <div class="music-icon">
-                            <i class="fas fa-music"></i>
-                        </div>
-                        <div style="flex-grow: 1;">
-                            <h3 style="font-size: 18px; margin-bottom: 2px;">Falling Down</h3>
-                            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 12px;">Lil Peep & XXXTENTACION</p>
-                            <a href="https://open.spotify.com/search/Lil%20Peep%20XXXTENTACION%20Falling%20Down" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 14px; font-size: 13px; border-radius: 20px;">
-                                <i class="fab fa-spotify" style="color: #1DB954;"></i> Listen on Spotify
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Music 2 -->
-                    <div class="card music-card">
-                        <div class="music-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--accent-purple);">
-                            <i class="fas fa-compact-disc"></i>
-                        </div>
-                        <div style="flex-grow: 1;">
-                            <h3 style="font-size: 18px; margin-bottom: 2px;">Stuff</h3>
-                            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 12px;">Travis Scott</p>
-                            <a href="https://open.spotify.com/search/Travis%20Scott%20Stuff" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 14px; font-size: 13px; border-radius: 20px;">
-                                <i class="fab fa-spotify" style="color: #1DB954;"></i> Listen on Spotify
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ Contact & Anonymous Message ============ -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="anonymous-box">
-                    <h3 style="margin-bottom: 10px;"><i class="fas fa-user-secret" style="color: var(--accent-purple);"></i> Anonymous Message Box</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 14px;">
-                        Feel free to send me a message, feedback, or criticism completely anonymously.
-                    </p>
-                    
-                    <form id="anonymous-form" class="anonymous-form" action="https://api.web3forms.com/submit" method="POST">
-                        <input type="hidden" name="access_key" value="4d1ba36a-acdf-4904-b7c3-0de65b284ebe">
-                        <textarea name="message" placeholder="Write your message here..." required></textarea>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                            <i class="fas fa-paper-plane"></i> Send Anonymously
-                        </button>
-                        <div id="form-result" class="form-result"></div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ Footer ============ -->
-        <footer class="footer">
-            <div class="container">
-                <div class="social-links">
-                    <a href="https://github.com/arman2005l" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://t.me/arman_laygh" target="_blank" rel="noopener noreferrer" class="social-link" title="Telegram"><i class="fab fa-telegram"></i></a>
-                </div>
-                <p style="color: var(--text-secondary); font-size: 14px;">© 2026 - Designed & Developed by Arman</p>
-            </div>
-        </footer>
-    </div>
-
-    <!-- ============ JavaScript ============ -->
-    <script>
-        // 1. Mobile Menu
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const navMenu = document.getElementById('nav-menu');
-
-        mobileBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // 2. Theme Toggle (Dark / Light)
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            if (document.body.classList.contains('light-mode')) {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
-
-        // 3. Typewriter Effect
-        const typewriterEl = document.getElementById('typewriter');
-        const phrases = [
-            'Low-level & System Programming.',
-            'Linux OS & Networking.',
-            'Cybersecurity & Penetration Testing.'
-        ];
-        let pIndex = 0, cIndex = 0, isDeleting = false;
-
-        function type() {
-            const current = phrases[pIndex];
-            if (isDeleting) {
-                typewriterEl.textContent = current.substring(0, cIndex - 1);
-                cIndex--;
-            } else {
-                typewriterEl.textContent = current.substring(0, cIndex + 1);
-                cIndex++;
-            }
-
-            if (!isDeleting && cIndex === current.length) {
-                isDeleting = true;
-                setTimeout(type, 1500);
-                return;
-            } else if (isDeleting && cIndex === 0) {
-                isDeleting = false;
-                pIndex = (pIndex + 1) % phrases.length;
-            }
-
-            setTimeout(type, isDeleting ? 40 : 80);
-        }
-        document.addEventListener('DOMContentLoaded', type);
-
-        // 4. Anonymous Form Submission
-        const form = document.getElementById('anonymous-form');
-        const result = document.getElementById('form-result');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            result.style.display = 'block';
-            result.className = 'form-result';
-            result.textContent = 'Sending...';
-
-            const formData = new FormData(form);
-            try {
-                const res = await fetch(form.action, { method: 'POST', body: formData });
-                const json = await res.json();
-                if (json.success) {
-                    result.className = 'form-result success';
-                    result.textContent = 'Your message has been successfully sent anonymously!';
-                    form.reset();
-                } else {
-                    result.textContent = 'Error sending message. Please check the Web3Forms key.';
-                }
-            } catch (err) {
-                result.textContent = 'Network error while sending the message.';
-            }
-        });
-    </script>
-</body>
-</html>
+$ ./start.sh --status active</code></pre></div></div></div></div></section>
+<section class="about" id="about"><div class="container"><div class="section-header"><h2 class="section-title"><span class="lang-en">About</span><span class="lang-fa-text lang-fa">درباره</span></h2><p class="section-subtitle"><span class="lang-en">Technical focus and current areas of work</span><span class="lang-fa-text lang-fa">حوزه‌های فنی و زمینه‌های کاری</span></p></div><div class="grid-2"><div class="card"><h3 style="margin-bottom:15px;color:var(--accent-blue)"><span class="lang-en">Overview</span><span class="lang-fa-text lang-fa">معرفی فنی</span></h3><p style="color:var(--text-secondary);line-height:1.8"><span class="lang-en">Work focuses on building practical software and operating services on Linux servers, including backend services, Telegram bots, VPN infrastructure, command-line tools, and mobile applications. Projects involve API and database integration, containerized deployment, network protocols, and systems-level development.</span><span class="lang-fa-text lang-fa">تمرکز بر پیاده‌سازی نرم‌افزارهای کاربردی و راه‌اندازی سرویس روی سرورهای لینوکسی است؛ از جمله سرویس‌های بک‌اند، ربات‌های تلگرام، زیرساخت VPN، ابزارهای خط فرمان و اپلیکیشن موبایل. پروژه‌ها شامل اتصال API و پایگاه داده، استقرار کانتینری، پروتکل‌های شبکه و توسعه‌ی سیستمی هستند.</span></p></div><div class="card"><h3 style="margin-bottom:15px;color:var(--accent-purple)"><span class="lang-en">Key Areas</span><span class="lang-fa-text lang-fa">حوزه‌های کاری</span></h3><ul style="list-style:none;color:var(--text-secondary);line-height:2"><li><i class="fas fa-check" style="color:var(--accent-cyan);margin-right:8px"></i><span class="lang-en">Backend services and Telegram bots</span><span class="lang-fa-text lang-fa">سرویس‌های بک‌اند و ربات‌های تلگرام</span></li><li><i class="fas fa-check" style="color:var(--accent-cyan);margin-right:8px"></i><span class="lang-en">Linux server operations and networking</span><span class="lang-fa-text lang-fa">مدیریت سرور لینوکس و شبکه</span></li><li><i class="fas fa-check" style="color:var(--accent-cyan);margin-right:8px"></i><span class="lang-en">Systems tools and security fundamentals</span><span class="lang-fa-text lang-fa">ابزارهای سیستمی و مبانی امنیت</span></li></ul></div></div></div></section>
+<section class="skills" id="skills"><div class="container"><div class="section-header"><h2 class="section-title"><span class="lang-en">Technical Skills</span><span class="lang-fa-text lang-fa">مهارت‌های فنی</span></h2><p class="section-subtitle"><span class="lang-en">Grouped by technology and area</span><span class="lang-fa-text lang-fa">دسته‌بندی‌شده بر اساس فناوری و حوزه</span></p></div><div class="skill-groups">
+<div class="card skill-group"><h3><i class="fas fa-code" style="color:var(--accent-blue)"></i> <span class="lang-en">Languages</span><span class="lang-fa-text lang-fa">زبان‌ها</span></h3><div class="badges"><span class="lang-en">Go · Python · Rust (Learning) · C (Learning) · Dart</span><span class="lang-fa-text lang-fa">Go · Python · Rust (در حال یادگیری) · C (در حال یادگیری) · Dart</span></div></div>
+<div class="card skill-group"><h3><i class="fas fa-server" style="color:var(--accent-cyan)"></i> <span class="lang-en">Infrastructure & Networking</span><span class="lang-fa-text lang-fa">زیرساخت و شبکه</span></h3><div class="badges"><span class="lang-en">Docker / Docker Compose · Nginx · Linux (Ubuntu) · Xray-core / sing-box · gRPC</span><span class="lang-fa-text lang-fa">Docker / Docker Compose · Nginx · Linux (Ubuntu) · Xray-core / sing-box · gRPC</span></div></div>
+<div class="card skill-group"><h3><i class="fas fa-shield-alt" style="color:var(--accent-purple)"></i> <span class="lang-en">Security</span><span class="lang-fa-text lang-fa">امنیت</span></h3><div class="badges"><span class="lang-en">Red Team Path · Basic Linux Kernel Modules in C</span><span class="lang-fa-text lang-fa">شروع مسیر Red Team · ماژول‌نویسی ساده‌ی کرنل لینوکس با C</span></div></div>
+<div class="card skill-group"><h3><i class="fas fa-book-open" style="color:var(--accent-blue)"></i> <span class="lang-en">Currently Learning</span><span class="lang-fa-text lang-fa">در حال یادگیری</span></h3><div class="badges"><span class="lang-en">Linux Kernel Development with Rust</span><span class="lang-fa-text lang-fa">توسعه‌ی کرنل لینوکس با Rust</span></div></div>
+</div></div></section>
+<section class="projects" id="projects"><div class="container"><div class="section-header"><h2 class="section-title"><span class="lang-en">Completed Projects</span><span class="lang-fa-text lang-fa">پروژه‌های انجام‌شده</span></h2><p class="section-subtitle"><span class="lang-en">Selected completed work</span><span class="lang-fa-text lang-fa">نمونه‌ای از پروژه‌های تکمیل‌شده</span></p></div><div class="grid-cards"><article class="card project-card"><span class="status-badge"><span class="lang-fa-text lang-fa">پروژه‌ی اصلی · خصوصی</span><span class="lang-en">Private · Main project</span></span><h3><span class="lang-fa-text lang-fa">زیرساخت فروش خودکار کانفیگ VPN</span><span class="lang-en">Automated VPN Configuration Sales Infrastructure</span></h3><p><span class="lang-fa-text lang-fa">سیستم خودمیزبان فروش کانفیگ VPN که از ابتدا روی سرورهای شخصی لینوکس طراحی و پیاده‌سازی شده است. Xray-core و sing-box از طریق gRPC مستقیم مدیریت می‌شوند؛ سرویس شامل ربات تلگرام با aiogram، دیتابیس، سرویس اشتراک و Nginx reverse proxy با SSL خودکار است. وبهوک پرداخت رمزارزی با HMAC اعتبارسنجی می‌شود و از طریق شبکه‌ی داخلی ایزوله‌ی Docker با API داخلی ربات ارتباط دارد. تطبیق خودکار پرداخت ریالی با پیامک بانکی در حال توسعه است.</span><span class="lang-en">A self-hosted VPN configuration sales system designed and implemented on personal Linux servers. Xray-core and sing-box are managed over direct gRPC. The services include an aiogram Telegram bot, database, subscription service, and Nginx reverse proxy with automatic SSL. Crypto payments use an HMAC-verified webhook that communicates with the bot’s internal API over an isolated Docker network. Automated IRR payment matching using bank SMS is in development.</span></p><div class="tech-tags"><span class="tech-tag">Xray-core</span><span class="tech-tag">sing-box</span><span class="tech-tag">VLESS+Reality</span><span class="tech-tag">Hysteria2</span><span class="tech-tag">TUIC</span><span class="tech-tag">Docker Compose</span><span class="tech-tag">aiogram</span><span class="tech-tag">gRPC</span><span class="tech-tag">Nginx</span><span class="tech-tag">PostgreSQL/SQLite</span><span class="tech-tag">HMAC</span></div></article>
+<article class="card project-card"><span class="status-badge"><span class="lang-fa-text lang-fa">خصوصی</span><span class="lang-en">Private</span></span><h3><span class="lang-fa-text lang-fa">اپلیکیشن اندروید فورواردر پیامک</span><span class="lang-en">Android SMS Forwarder App</span></h3><p><span class="lang-fa-text lang-fa">اپلیکیشن اندروید با Flutter برای فوروارد خودکار پیامک‌های بانکی به سرور شخصی؛ به‌عنوان جایگزینی برای اپلیکیشن‌های آماده‌ای که محدودیت پورت داشتند. جزئیات بیشتر به‌دلیل خصوصی‌بودن پروژه منتشر نمی‌شود.</span><span class="lang-en">A Flutter Android app that automatically forwards bank SMS messages to a personal server, built as an alternative to off-the-shelf apps with port limitations. Further implementation details are private.</span></p><div class="tech-tags"><span class="tech-tag">Flutter</span><span class="tech-tag">Android</span></div></article>
+<article class="card project-card"><span class="status-badge"><span class="lang-fa-text lang-fa">انجام‌شده</span><span class="lang-en">Completed</span></span><h3><span class="lang-fa-text lang-fa">Bat — ربات پیام‌رسان ناشناس تلگرامی</span><span class="lang-en">Bat — Telegram Anonymous Messenger Bot</span></h3><p><span class="lang-fa-text lang-fa">ربات ارسال پیام ناشناس از طریق لینک اختصاصی، با معماری edit-based برای جلوگیری از پیام‌های تکراری در چت. شامل ریپلای‌ترد بین دو طرف، بلاک متقابل، رسید خواندن پیام و آمار فعالیت به‌تفکیک مخاطب؛ با تمرکز بر تجربه‌ی کاربری روان و مدیریت state.</span><span class="lang-en">An anonymous messaging bot using personal links, built around an edit-based UX to avoid chat spam. Features include reply threads between participants, mutual blocking, read receipts, and per-contact activity statistics, with a focus on smooth interaction and clean state management.</span></p><a class="project-link" href="https://t.me/batchatpro_bot" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i><span class="lang-fa-text lang-fa">@batchatpro_bot</span><span class="lang-en">@batchatpro_bot</span></a><div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">aiogram v3</span><span class="tech-tag">SQLite</span><span class="tech-tag">Docker</span></div></article>
+<article class="card project-card"><span class="status-badge"><span class="lang-fa-text lang-fa">انجام‌شده</span><span class="lang-en">Completed</span></span><h3><span class="lang-fa-text lang-fa">vpnt — کلاینت VPN ترمینالی</span><span class="lang-en">vpnt — TUI VPN Client</span></h3><p><span class="lang-fa-text lang-fa">کلاینت TUI برای لینوکس با پشتیبانی از لینک اشتراک و پروتکل‌های VLESS، VMess، Trojan، Shadowsocks، Hysteria2 و TUIC. کانفیگ sing-box را می‌سازد و پیش از اجرا اعتبارسنجی می‌کند؛ از TUN برای مسیریابی سیستم، چند کانفیگ، قوانین مسیریابی بر اساس اپلیکیشن/دامنه، تست پینگ و لاگ زنده پشتیبانی می‌کند. برای اجرا به sudo مستقیم نیاز ندارد و از setcap استفاده می‌کند.</span><span class="lang-en">A Linux terminal UI client supporting subscription links and VLESS, VMess, Trojan, Shadowsocks, Hysteria2, and TUIC. It generates and validates sing-box configuration, supports TUN-based system routing, multiple configs, per-app/domain routing rules, ping tests, and live logs. It runs without direct sudo by using setcap.</span></p><a class="project-link" href="https://github.com/arman2005l/vpnt" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>github.com/arman2005l/vpnt</a><div class="tech-tags"><span class="tech-tag">Rust</span><span class="tech-tag">sing-box</span><span class="tech-tag">TUI (ratatui)</span><span class="tech-tag">Linux</span></div></article>
+<article class="card project-card"><span class="status-badge"><span class="lang-fa-text lang-fa">انجام‌شده</span><span class="lang-en">Completed</span></span><h3><span class="lang-fa-text lang-fa">ابزار تست نفوذ</span><span class="lang-en">Pentesting Tool</span></h3><p><span class="lang-fa-text lang-fa">ابزاری سبک برای بررسی‌های اولیه‌ی امنیتی؛ پروژه‌ای برای پیشبرد یادگیری امنیت تهاجمی در کنار برنامه‌نویسی با Go.</span><span class="lang-en">A lightweight tool for initial security checks, combining hands-on learning in offensive security with Go development.</span></p><a class="project-link" href="https://github.com/arman2005l/pentesting-" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>github.com/arman2005l/pentesting-</a><div class="tech-tags"><span class="tech-tag">Go</span></div></article></div></div></section>
+<section class="projects in-progress" id="in-progress"><div class="container"><div class="section-header"><h2 class="section-title"><span class="lang-en">Projects in Progress</span><span class="lang-fa-text lang-fa">پروژه‌های در جریان</span></h2><p class="section-subtitle"><span class="lang-en">Work currently under development</span><span class="lang-fa-text lang-fa">پروژه‌های در حال توسعه</span></p></div><div class="grid-cards"><article class="card project-card"><span class="status-badge"><span class="lang-en">In Progress</span><span class="lang-fa-text lang-fa">در حال توسعه</span></span><h3><span class="lang-en">Social Chess App</span><span class="lang-fa-text lang-fa">شطرنج اجتماعی</span></h3><p><span class="lang-en">A chess app with groups, chat, an internal league with tiered bots, and AI game analysis.</span><span class="lang-fa-text lang-fa">اپلیکیشن شطرنج با گروه‌ها، گفت‌وگو، لیگ داخلی با بات‌های سطح‌بندی‌شده و تحلیل هوش مصنوعی بازی.</span></p><div class="tech-tags"><span class="tech-tag">Flutter</span><span class="tech-tag">Go</span><span class="tech-tag">WebSocket</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Docker</span></div></article><article class="card project-card"><span class="status-badge"><span class="lang-en">In Progress</span><span class="lang-fa-text lang-fa">در حال توسعه</span></span><h3><span class="lang-en">Biomechanics Analysis Platform</span><span class="lang-fa-text lang-fa">پلتفرم تحلیل بیومکانیک</span></h3><p><span class="lang-en">A web platform for uploading sports movement videos and receiving scores and error detection, alongside an interactive 3D muscle atlas. Currently in the architecture design phase.</span><span class="lang-fa-text lang-fa">پلتفرم وب برای بارگذاری ویدیوهای حرکات ورزشی و دریافت امتیاز و تشخیص خطا، همراه با اطلس تعاملی سه‌بعدی عضلات. در مرحله‌ی طراحی معماری است.</span></p><div class="tech-tags"><span class="tech-tag">Architecture design</span><span class="tech-tag">Web</span><span class="tech-tag">3D</span></div></article></div></div></section>
+<section class="vpn-section" id="vpn"><div class="container"><div class="section-header"><h2 class="section-title"><span class="lang-en">VPN Infrastructure</span><span class="lang-fa-text lang-fa">زیرساخت VPN</span></h2><p class="section-subtitle"><span class="lang-en">Automated configuration sales system · Main project</span><span class="lang-fa-text lang-fa">سامانه‌ی فروش خودکار کانفیگ · پروژه‌ی اصلی</span></p></div><div class="vpn-banner"><div class="vpn-content"><h3 style="font-size:28px;margin-bottom:10px;color:#fff"><span class="lang-en">OpenGate VPN · Sales Infrastructure</span><span class="lang-fa-text lang-fa">OpenGate VPN · زیرساخت فروش</span></h3><p style="color:var(--text-secondary);font-size:16px;line-height:1.8;margin-bottom:5px"><span class="lang-en">A self-hosted service built with Xray-core and sing-box for VLESS+Reality, Hysteria2, and TUIC. Docker Compose runs the aiogram sales bot, subscription service, and supporting services; the bot manages proxy users through direct gRPC. Nginx provides reverse proxy and automatic SSL. Crypto payment uses an HMAC-verified webhook over an isolated internal Docker network. Automated IRR payment matching from bank SMS is in development.</span><span class="lang-fa-text lang-fa">سرویسی خودمیزبان بر پایه‌ی Xray-core و sing-box برای VLESS+Reality، Hysteria2 و TUIC. ربات فروش aiogram، سرویس اشتراک و سرویس‌های پشتیبان با Docker Compose اجرا می‌شوند و ربات از طریق gRPC مستقیم کاربران هسته‌ی پروکسی را مدیریت می‌کند. Nginx reverse proxy و SSL خودکار را فراهم می‌کند. پرداخت رمزارزی با وبهوک HMAC-verified روی شبکه‌ی داخلی ایزوله‌ی Docker انجام می‌شود. تطبیق خودکار پرداخت ریالی با پیامک بانکی در حال توسعه است.</span></p><div class="vpn-features"><span class="vpn-feature">Xray-core · sing-box</span><span class="vpn-feature">VLESS+Reality · Hysteria2 · TUIC</span><span class="vpn-feature">Docker Compose · gRPC</span><span class="vpn-feature">aiogram · Nginx · HMAC webhook</span></div><a class="btn btn-telegram" href="https://t.me/OpenGatePro_Bot" rel="noopener noreferrer" target="_blank"><i class="fab fa-telegram-plane"></i> Launch @OpenGatePro_Bot</a></div><div class="vpn-icon"><i class="fas fa-shield-halved"></i></div></div></div></section>
+<section class="music" id="music"><div class="container"><div class="section-header"><h2 class="section-title"><span class="lang-en">Favorite Music</span><span class="lang-fa-text lang-fa">موسیقی موردعلاقه</span></h2><p class="section-subtitle"><span class="lang-en">A few tracks I listen to while coding and focusing</span><span class="lang-fa-text lang-fa">چند قطعه برای زمان کدنویسی و تمرکز</span></p></div><div class="grid-2" style="max-width:850px;margin:0 auto"><div class="card music-card"><div class="music-icon"><i class="fas fa-music"></i></div><div style="flex-grow:1"><h3 style="font-size:18px;margin-bottom:2px">Falling Down</h3><p style="color:var(--text-secondary);font-size:14px;margin-bottom:12px">Lil Peep &amp; XXXTENTACION</p><a class="btn btn-secondary" href="https://open.spotify.com/search/Lil%20Peep%20XXXTENTACION%20Falling%20Down" rel="noopener noreferrer" style="padding:6px 14px;font-size:13px;border-radius:20px" target="_blank"><i class="fab fa-spotify" style="color:#1DB954"></i><span class="lang-en">Listen on Spotify</span><span class="lang-fa-text lang-fa">شنیدن در Spotify</span></a></div></div><div class="card music-card"><div class="music-icon" style="background:rgba(139,92,246,.15);color:var(--accent-purple)"><i class="fas fa-compact-disc"></i></div><div style="flex-grow:1"><h3 style="font-size:18px;margin-bottom:2px">Stuff</h3><p style="color:var(--text-secondary);font-size:14px;margin-bottom:12px">Travis Scott</p><a class="btn btn-secondary" href="https://open.spotify.com/search/Travis%20Scott%20Stuff" rel="noopener noreferrer" style="padding:6px 14px;font-size:13px;border-radius:20px" target="_blank"><i class="fab fa-spotify" style="color:#1DB954"></i><span class="lang-en">Listen on Spotify</span><span class="lang-fa-text lang-fa">شنیدن در Spotify</span></a></div></div></div></div></section>
+<section class="contact" id="contact"><div class="container"><div class="section-header"><h2 class="section-title"><span class="lang-en">Contact</span><span class="lang-fa-text lang-fa">تماس</span></h2></div><div class="anonymous-box"><h3 style="margin-bottom:10px"><i class="fas fa-user-secret" style="color:var(--accent-purple)"></i> <span class="lang-en">Anonymous Message Box</span><span class="lang-fa-text lang-fa">ارسال پیام ناشناس</span></h3><p style="color:var(--text-secondary);margin-bottom:20px;font-size:14px"><span class="lang-en">Feel free to send me a message, feedback, or criticism completely anonymously.</span><span class="lang-fa-text lang-fa">پیام، بازخورد یا پرسش خود را به‌صورت ناشناس ارسال کنید.</span></p><form action="https://api.web3forms.com/submit" class="anonymous-form" id="anonymous-form" method="POST"><input name="access_key" type="hidden" value="4d1ba36a-acdf-4904-b7c3-0de65b284ebe"><textarea name="message" required data-placeholder-en="Write your message here..." data-placeholder-fa="پیام خود را اینجا بنویسید..."></textarea><button class="btn btn-primary" style="width:100%;justify-content:center" type="submit"><i class="fas fa-paper-plane"></i><span class="lang-en">Send Anonymously</span><span class="lang-fa-text lang-fa">ارسال ناشناس</span></button><div class="form-result" id="form-result"></div></form></div></div></section>
+<footer class="footer"><div class="container"><div class="social-links"><a class="social-link" href="https://github.com/arman2005l" rel="noopener noreferrer" target="_blank" title="GitHub"><i class="fab fa-github"></i></a><a class="social-link" href="https://t.me/arman_laygh" rel="noopener noreferrer" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a></div><p style="color:var(--text-secondary);font-size:14px"><span class="lang-en">© 2026 - Designed & Developed by Arman</span><span class="lang-fa-text lang-fa">© ۲۰۲۶ - طراحی و توسعه توسط آرمان</span></p></div></footer></div>
+<script>
+(() => {
+ const root=document.documentElement, langBtn=document.getElementById('lang-toggle'), nav=document.getElementById('nav-menu');
+ const mobile=document.getElementById('mobile-menu-btn'), theme=document.getElementById('theme-toggle'); let language='en';
+ mobile.addEventListener('click',()=>nav.classList.toggle('active'));
+ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('active')));
+ theme.addEventListener('click',()=>{document.body.classList.toggle('light-mode');const icon=theme.querySelector('i');icon.classList.toggle('fa-moon');icon.classList.toggle('fa-sun')});
+ const phrases={en:['Linux infrastructure and networking.','Backend services and systems programming.','Security tooling and network protocols.'],fa:['زیرساخت لینوکس و شبکه.','سرویس‌های بک‌اند و برنامه‌نویسی سیستمی.','ابزارهای امنیتی و پروتکل‌های شبکه.']};
+ const tw=document.getElementById('typewriter');let phraseIndex=0,charIndex=0,deleting=false,timer;
+ function type(){const current=phrases[language][phraseIndex];tw.textContent=current.substring(0,charIndex+(deleting?-1:1));charIndex+=deleting?-1:1;if(!deleting&&charIndex===current.length){deleting=true;timer=setTimeout(type,1400);return}if(deleting&&charIndex===0){deleting=false;phraseIndex=(phraseIndex+1)%phrases[language].length}timer=setTimeout(type,deleting?36:65)}
+ function setLanguage(next){language=next;const fa=next==='fa';root.lang=next;root.dir=fa?'rtl':'ltr';document.body.classList.toggle('lang-fa',fa);document.querySelectorAll('.lang-en').forEach(e=>e.style.display=fa?'none':'');document.querySelectorAll('.lang-fa-text').forEach(e=>e.style.display=fa?'':'none');langBtn.textContent=fa?'EN':'FA';langBtn.setAttribute('aria-label',fa?'Switch to English':'Switch to Persian');document.querySelectorAll('[data-placeholder-en]').forEach(e=>e.placeholder=e.dataset[fa?'placeholderFa':'placeholderEn']);clearTimeout(timer);phraseIndex=0;charIndex=0;deleting=false;tw.textContent='';type()}
+ langBtn.addEventListener('click',()=>setLanguage(language==='en'?'fa':'en'));
+ setLanguage('en');
+ const form=document.getElementById('anonymous-form'),result=document.getElementById('form-result');
+ form.addEventListener('submit',async e=>{e.preventDefault();result.style.display='block';result.className='form-result';result.textContent=language==='fa'?'در حال ارسال...':'Sending...';try{const response=await fetch(form.action,{method:'POST',body:new FormData(form)});const data=await response.json();if(data.success){result.className='form-result success';result.textContent=language==='fa'?'پیام ناشناس با موفقیت ارسال شد.':'Your message has been sent anonymously.';form.reset()}else result.textContent=language==='fa'?'ارسال پیام ناموفق بود. کلید Web3Forms را بررسی کنید.':'Error sending message. Please check the Web3Forms key.'}catch(error){result.textContent=language==='fa'?'خطای شبکه هنگام ارسال پیام.':'Network error while sending the message.'}});
+})();
+</script></body></html>
